@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /telegram-proxy/
+
+# TODO: замените example.ru на свой домен
+Sitemap: https://example.ru/sitemap.xml
