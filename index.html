@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<!--
+  =========================================================================
+  Сайт-визитка «ИП Белицкий — ремонт квартир и домов в Тюмени»
+
+  КАК БЫСТРО ПОМЕНЯТЬ ДАННЫЕ:
+  • Телефон, Telegram, MAX, реквизиты, опыт, цены, бот для заявок —
+    всё в одном файле: js/config.js (меняется за минуту).
+  • Фото — ищите в этом файле комментарии «ФОТО:». Свои снимки кладите
+    в папку images/ и меняйте адрес в src (и в data-full у портфолио).
+  • Тексты — правьте прямо в этом файле, разделы подписаны комментариями.
+  • Цвета и шрифты — CSS-переменные в начале css/style.css.
+
+  Номер телефона и ссылки ниже — запасные значения на случай отключённого
+  JavaScript; основное место для правки — js/config.js.
+  =========================================================================
+-->
+<html lang="ru" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ===== SEO ===== -->
+  <title>Ремонт квартир и домов в Тюмени под ключ — ИП Белицкий</title>
+  <meta name="description" content="Ремонт квартир и домов в Тюмени под ключ: косметический и капитальный ремонт, отделка, плитка, электрика, сантехника. Фиксированная смета в договоре, сроки и гарантия. Бесплатный замер.">
+  <meta name="keywords" content="ремонт квартир Тюмень, ремонт домов Тюмень, ремонт под ключ Тюмень, капитальный ремонт, косметический ремонт, отделочные работы">
+  <meta name="author" content="ИП Белицкий">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#23211f">
+  <meta name="format-detection" content="telephone=no">
+  <!-- TODO: после публикации замените адрес на свой домен (здесь и в og:url / og:image) -->
+  <link rel="canonical" href="https://example.ru/">
+
+  <!-- ===== Open Graph (красивое превью ссылки в мессенджерах и соцсетях) ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:site_name" content="ИП Белицкий — ремонт квартир и домов">
+  <meta property="og:title" content="Ремонт квартир и домов в Тюмени под ключ — ИП Белицкий">
+  <meta property="og:description" content="Фиксированная смета, соблюдение сроков, гарантия и чистота на объекте. Бесплатный замер по Тюмени и пригороду.">
+  <meta property="og:url" content="https://example.ru/">
+  <meta property="og:image" content="https://example.ru/images/og-cover.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+  <!-- ===== Шрифт Manrope (кириллица) ===== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Фоновое фото первого экрана грузим заранее, чтобы оно появилось быстрее -->
+  <link rel="preconnect" href="https://images.unsplash.com">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ===== Микроразметка Schema.org (LocalBusiness). Телефон и реквизиты
+       автоматически обновляются из js/config.js ===== -->
+  <script type="application/ld+json" id="schema-org">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "ИП Белицкий",
+    "description": "Ремонт квартир и домов в Тюмени под ключ: косметический и капитальный ремонт, отделочные работы.",
+    "telephone": "+79000000000",
+    "url": "https://example.ru/",
+    "image": "https://example.ru/images/og-cover.jpg",
+    "priceRange": "₽₽",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Тюмень",
+      "addressRegion": "Тюменская область",
+      "addressCountry": "RU"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Тюмень" },
+      { "@type": "AdministrativeArea", "name": "Тюменский район" }
+    ],
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  }
+  </script>
+
+  <script src="js/config.js" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+
+<!-- =========================================================================
+     SVG-СПРАЙТ: все иконки сайта (стиль Lucide). Используются через <use href="#i-...">
+     ========================================================================= -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+  <defs>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <!-- Telegram — узнаваемая фирменная иконка (заливка) -->
+    <symbol id="i-telegram" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></symbol>
+    <!-- MAX — нейтральная иконка сообщения (официального SVG нет; рядом всегда подпись «MAX») -->
+    <symbol id="i-max" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/><path d="M8 12h.01"/><path d="M12 12h.01"/><path d="M16 12h.01"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16"/><path d="M4 12h16"/><path d="M4 18h16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+    <symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><path d="M8 6h8"/><path d="M16 14v4"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"/><path d="M20 3v4"/><path d="M22 5h-4"/></symbol>
+    <symbol id="i-key" viewBox="0 0 24 24"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"/><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"/></symbol>
+    <symbol id="i-roller" viewBox="0 0 24 24"><rect width="16" height="6" x="2" y="2" rx="2"/><path d="M10 16v-2a2 2 0 0 1 2-2h8a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect width="4" height="6" x="8" y="16" rx="1"/></symbol>
+    <symbol id="i-hammer" viewBox="0 0 24 24"><path d="m15 12-8.373 8.373a1 1 0 1 1-3-3L12 9"/><path d="m18 15 4-4"/><path d="m21.5 11.5-1.914-1.914A2 2 0 0 1 19 8.172V7l-2.26-2.26a6 6 0 0 0-4.202-1.756L9 2.96l.92.82A6.18 6.18 0 0 1 12 8.4V10l2 2h1.172a2 2 0 0 1 1.414.586L18.5 14.5"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M3 15h18"/><path d="M9 3v18"/><path d="M15 3v18"/></symbol>
+    <symbol id="i-zap" viewBox="0 0 24 24"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></symbol>
+    <symbol id="i-droplet" viewBox="0 0 24 24"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></symbol>
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-zoom" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/><path d="M11 8v6"/><path d="M8 11h6"/></symbol>
+    <symbol id="i-arrows-h" viewBox="0 0 24 24"><path d="m18 8 4 4-4 4"/><path d="m6 8-4 4 4 4"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+
+<!-- =========================================================================
+     ШАПКА (фиксированная, уменьшается при прокрутке)
+     ========================================================================= -->
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a class="logo" href="#top" aria-label="Белицкий — на главную">
+      <span class="logo__mark" aria-hidden="true">Б</span>
+      <span class="logo__text">
+        <span class="logo__name">Белицкий</span>
+        <span class="logo__tagline">ремонт квартир и домов</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Основное меню">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#advantages">Преимущества</a></li>
+        <li><a class="nav__link" href="#services">Услуги</a></li>
+        <li><a class="nav__link" href="#portfolio">Работы</a></li>
+        <li><a class="nav__link" href="#steps">Этапы</a></li>
+        <li><a class="nav__link" href="#reviews">Отзывы</a></li>
+        <li><a class="nav__link" href="#faq">Вопросы</a></li>
+        <li><a class="nav__link" href="#contact">Контакты</a></li>
+      </ul>
+      <div class="nav__mobile-contacts">
+        <a class="btn btn--primary btn--block" href="tel:+79000000000" data-link="phone">
+          <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+          <span data-cfg="phoneDisplay">+7 (900) 000-00-00</span>
+        </a>
+        <div class="nav__messengers">
+          <a class="btn btn--outline" href="https://t.me/username" data-link="telegram" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg> Telegram
+          </a>
+          <a class="btn btn--outline" href="https://max.ru/" data-link="max" target="_blank" rel="noopener">
+            <svg class="icon" aria-hidden="true"><use href="#i-max"/></svg> MAX
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <a class="header__phone" href="tel:+79000000000" data-link="phone">
+      <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+      <span data-cfg="phoneDisplay">+7 (900) 000-00-00</span>
+    </a>
+
+    <button class="burger" id="burger" type="button" aria-label="Открыть меню" aria-controls="nav" aria-expanded="false">
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+      <span class="burger__line"></span>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- =======================================================================
+       1. HERO — первый экран
+       ФОТО: фон задаётся в css/style.css (класс .hero__bg, переменная --hero-image)
+       ======================================================================= -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__content">
+      <p class="hero__eyebrow reveal">
+        <svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>
+        Тюмень и пригород
+      </p>
+      <h1 class="hero__title reveal">Ремонт квартир и&nbsp;домов в&nbsp;Тюмени под&nbsp;ключ</h1>
+      <p class="hero__subtitle reveal">
+        Сделаем ремонт, за который не стыдно перед гостями и не страшно за бюджет.
+        Смета фиксируется в договоре, сроки — тоже. Вы въезжаете в готовое жильё, мы увозим весь мусор.
+      </p>
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary btn--lg" href="tel:+79000000000" data-link="phone">
+          <svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg>
+          Позвонить
+        </a>
+        <a class="btn btn--glass btn--lg" href="https://t.me/username" data-link="telegram" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg>
+          Написать в Telegram
+        </a>
+        <a class="btn btn--glass btn--lg" href="https://max.ru/" data-link="max" target="_blank" rel="noopener">
+          <svg class="icon" aria-hidden="true"><use href="#i-max"/></svg>
+          Написать в MAX
+        </a>
+      </div>
+      <ul class="hero__stats reveal" aria-label="Коротко о нас">
+        <li><strong><span data-cfg="experienceYears">10</span>+</strong><span>лет в ремонте</span></li>
+        <li><strong><span data-cfg="objectsDone">150</span>+</strong><span>сданных объектов</span></li>
+        <li><strong>до <span data-cfg="warrantyYears">3</span> лет</strong><span>гарантии на работы</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       2. ПРЕИМУЩЕСТВА
+       ======================================================================= -->
+  <section class="section" id="advantages" aria-labelledby="advantages-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Почему нам доверяют</p>
+        <h2 class="section__title" id="advantages-title">Ремонт без нервов и сюрпризов</h2>
+        <p class="section__lead">Четыре правила, которые мы соблюдаем на каждом объекте — от студии до коттеджа.</p>
+      </div>
+
+      <div class="grid grid--4">
+        <article class="card feature reveal">
+          <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-calculator"/></svg></span>
+          <h3 class="feature__title">Фиксированная смета</h3>
+          <p class="feature__text">Считаем всё до начала работ и закрепляем цену в договоре. Никаких «а тут ещё доплатить» в середине ремонта.</p>
+        </article>
+        <article class="card feature reveal">
+          <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg></span>
+          <h3 class="feature__title">Соблюдаем сроки</h3>
+          <p class="feature__text">График этапов прописан в договоре. Каждую неделю присылаем фотоотчёт, чтобы вы видели прогресс, даже не приезжая.</p>
+        </article>
+        <article class="card feature reveal">
+          <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></span>
+          <h3 class="feature__title">Гарантия на работы</h3>
+          <p class="feature__text">Даём письменную гарантию. Если что-то пойдёт не так — приедем и исправим за свой счёт.</p>
+        </article>
+        <article class="card feature reveal">
+          <span class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-sparkles"/></svg></span>
+          <h3 class="feature__title">Чистота на объекте</h3>
+          <p class="feature__text">Укрываем мебель и пол, вывозим мусор, бережём подъезд и соседей. После сдачи делаем уборку.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       3. УСЛУГИ (цены «от ...» меняются в js/config.js → prices)
+       ======================================================================= -->
+  <section class="section section--sand" id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Что мы делаем</p>
+        <h2 class="section__title" id="services-title">Услуги и цены</h2>
+        <p class="section__lead">Цены ориентировочные — точную сумму назовём после бесплатного замера и закрепим в смете.</p>
+      </div>
+
+      <div class="grid grid--services">
+        <article class="card service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-key"/></svg></span>
+          <h3 class="service__title">Ремонт под ключ</h3>
+          <p class="service__text">От черновых работ до последней розетки. Вы получаете ключи от готового жилья.</p>
+          <p class="service__price">от <span data-price="turnkey">9 000</span> ₽/м²</p>
+        </article>
+        <article class="card service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-roller"/></svg></span>
+          <h3 class="service__title">Косметический ремонт</h3>
+          <p class="service__text">Обои, покраска, потолки, напольные покрытия. Быстро освежим квартиру без пыли и долгих сроков.</p>
+          <p class="service__price">от <span data-price="cosmetic">3 500</span> ₽/м²</p>
+        </article>
+        <article class="card service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-hammer"/></svg></span>
+          <h3 class="service__title">Капитальный ремонт</h3>
+          <p class="service__text">Демонтаж, перепланировка, выравнивание стен и пола, замена коммуникаций.</p>
+          <p class="service__price">от <span data-price="capital">6 500</span> ₽/м²</p>
+        </article>
+        <article class="card service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg></span>
+          <h3 class="service__title">Отделочные работы</h3>
+          <p class="service__text">Штукатурка, шпаклёвка, декоративные покрытия, ламинат и кварцвинил.</p>
+          <p class="service__price">от <span data-price="finishing">1 200</span> ₽/м²</p>
+        </article>
+        <article class="card service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg></span>
+          <h3 class="service__title">Укладка плитки</h3>
+          <p class="service__text">Санузлы, кухни, полы. Ровная раскладка, аккуратные швы и запилы под 45°.</p>
+          <p class="service__price">от <span data-price="tile">1 800</span> ₽/м²</p>
+        </article>
+        <article class="card service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-zap"/></svg></span>
+          <h3 class="service__title">Электрика</h3>
+          <p class="service__text">Новая проводка, щиток, розетки и освещение по проекту. Всё по нормам безопасности.</p>
+          <p class="service__price">от <span data-price="electric">900</span> ₽/м²</p>
+        </article>
+        <article class="card service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-droplet"/></svg></span>
+          <h3 class="service__title">Сантехника</h3>
+          <p class="service__text">Разводка труб, установка ванн, душевых, инсталляций и тёплых полов.</p>
+          <p class="service__price">от <span data-price="plumbing">1 100</span> ₽/м²</p>
+        </article>
+        <article class="card service reveal">
+          <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-home"/></svg></span>
+          <h3 class="service__title">Ремонт частных домов</h3>
+          <p class="service__text">Внутренняя отделка коттеджей и таунхаусов в Тюмени и пригороде.</p>
+          <p class="service__price">от <span data-price="houses">8 000</span> ₽/м²</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       4. ПОРТФОЛИО
+       ФОТО: замените src (превью) и data-full (большое фото для лайтбокса)
+       на свои, например src="images/work-1.jpg".
+       data-category="flat" — квартира, data-category="house" — дом.
+       ======================================================================= -->
+  <section class="section" id="portfolio" aria-labelledby="portfolio-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Портфолио</p>
+        <h2 class="section__title" id="portfolio-title">Наши работы</h2>
+        <p class="section__lead">Реальные объекты в Тюмени. Нажмите на фото, чтобы рассмотреть подробнее.</p>
+      </div>
+
+      <div class="filters reveal" role="group" aria-label="Фильтр работ">
+        <button class="filters__btn is-active" type="button" data-filter="all" aria-pressed="true">Все</button>
+        <button class="filters__btn" type="button" data-filter="flat" aria-pressed="false">Квартиры</button>
+        <button class="filters__btn" type="button" data-filter="house" aria-pressed="false">Дома</button>
+      </div>
+
+      <ul class="gallery" id="gallery">
+        <!-- ФОТО: работа 1 -->
+        <li class="gallery__item reveal" data-category="flat">
+          <button class="gallery__btn" type="button" data-full="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1600&q=80&auto=format&fit=crop" data-caption="Гостиная, ЖК в Восточном округе — 64 м²">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=70&auto=format&fit=crop" alt="Светлая гостиная с диваном после ремонта" loading="lazy" decoding="async" width="800" height="600">
+            <span class="gallery__overlay"><span class="gallery__caption">Гостиная, 64 м²</span><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+        </li>
+        <!-- ФОТО: работа 2 -->
+        <li class="gallery__item reveal" data-category="house">
+          <button class="gallery__btn" type="button" data-full="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1600&q=80&auto=format&fit=crop" data-caption="Частный дом в пригороде Тюмени — 180 м²">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=70&auto=format&fit=crop" alt="Современный частный дом после отделки" loading="lazy" decoding="async" width="800" height="600">
+            <span class="gallery__overlay"><span class="gallery__caption">Дом, 180 м²</span><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+        </li>
+        <!-- ФОТО: работа 3 -->
+        <li class="gallery__item reveal" data-category="flat">
+          <button class="gallery__btn" type="button" data-full="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1600&q=80&auto=format&fit=crop" data-caption="Кухня-гостиная — 42 м²">
+            <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=70&auto=format&fit=crop" alt="Кухня с белыми фасадами и деревянной столешницей" loading="lazy" decoding="async" width="800" height="600">
+            <span class="gallery__overlay"><span class="gallery__caption">Кухня, 42 м²</span><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+        </li>
+        <!-- ФОТО: работа 4 -->
+        <li class="gallery__item reveal" data-category="house">
+          <button class="gallery__btn" type="button" data-full="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1600&q=80&auto=format&fit=crop" data-caption="Гостиная в коттедже — 210 м²">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&q=70&auto=format&fit=crop" alt="Просторная гостиная в коттедже с панорамными окнами" loading="lazy" decoding="async" width="800" height="600">
+            <span class="gallery__overlay"><span class="gallery__caption">Коттедж, 210 м²</span><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+        </li>
+        <!-- ФОТО: работа 5 -->
+        <li class="gallery__item reveal" data-category="flat">
+          <button class="gallery__btn" type="button" data-full="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=1600&q=80&auto=format&fit=crop" data-caption="Спальня в двухкомнатной квартире — 58 м²">
+            <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&q=70&auto=format&fit=crop" alt="Уютная спальня в тёплых тонах" loading="lazy" decoding="async" width="800" height="600">
+            <span class="gallery__overlay"><span class="gallery__caption">Спальня, 58 м²</span><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+        </li>
+        <!-- ФОТО: работа 6 -->
+        <li class="gallery__item reveal" data-category="flat">
+          <button class="gallery__btn" type="button" data-full="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1600&q=80&auto=format&fit=crop" data-caption="Санузел под ключ — 6 м²">
+            <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=70&auto=format&fit=crop" alt="Санузел с крупноформатной плиткой" loading="lazy" decoding="async" width="800" height="600">
+            <span class="gallery__overlay"><span class="gallery__caption">Санузел, 6 м²</span><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+        </li>
+        <!-- ФОТО: работа 7 -->
+        <li class="gallery__item reveal" data-category="house">
+          <button class="gallery__btn" type="button" data-full="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1600&q=80&auto=format&fit=crop" data-caption="Кухня в частном доме — 150 м²">
+            <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=70&auto=format&fit=crop" alt="Кухня с островом в частном доме" loading="lazy" decoding="async" width="800" height="600">
+            <span class="gallery__overlay"><span class="gallery__caption">Дом, 150 м²</span><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+        </li>
+        <!-- ФОТО: работа 8 -->
+        <li class="gallery__item reveal" data-category="house">
+          <button class="gallery__btn" type="button" data-full="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=80&auto=format&fit=crop" data-caption="Гостиная в таунхаусе — 120 м²">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&q=70&auto=format&fit=crop" alt="Гостиная в таунхаусе в светлых тонах" loading="lazy" decoding="async" width="800" height="600">
+            <span class="gallery__overlay"><span class="gallery__caption">Таунхаус, 120 м²</span><svg class="icon" aria-hidden="true"><use href="#i-zoom"/></svg></span>
+          </button>
+        </li>
+      </ul>
+
+      <!-- ---------- ДО / ПОСЛЕ ----------
+           ФОТО: лучше всего смотрятся два снимка одного ракурса одинакового размера.
+           .compare__img--after — фото «после», .compare__img--before — фото «до». -->
+      <div class="compare-wrap reveal">
+        <div class="compare-wrap__text">
+          <h3 class="compare-wrap__title">Было&nbsp;/&nbsp;стало</h3>
+          <p>Потяните ползунок, чтобы сравнить квартиру до начала работ и в день сдачи. Однушка в старом фонде, 38&nbsp;м², срок — 2,5 месяца.</p>
+        </div>
+        <div class="compare" id="compare" style="--pos: 50%">
+          <img class="compare__img compare__img--after" src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1400&q=75&auto=format&fit=crop" alt="Комната после ремонта" loading="lazy" decoding="async" width="1400" height="933">
+          <img class="compare__img compare__img--before" src="https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1400&q=75&auto=format&fit=crop" alt="Комната до ремонта: голые стены и стройматериалы" loading="lazy" decoding="async" width="1400" height="933">
+          <span class="compare__label compare__label--before">До</span>
+          <span class="compare__label compare__label--after">После</span>
+          <span class="compare__handle" aria-hidden="true"><svg class="icon"><use href="#i-arrows-h"/></svg></span>
+          <input class="compare__range" type="range" min="0" max="100" value="50" aria-label="Сравнение до и после ремонта">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       5. ЭТАПЫ РАБОТЫ
+       ======================================================================= -->
+  <section class="section section--dark" id="steps" aria-labelledby="steps-title">
+    <div class="container">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Как мы работаем</p>
+        <h2 class="section__title" id="steps-title">Шесть понятных шагов</h2>
+        <p class="section__lead">На каждом этапе вы знаете, что происходит, сколько это стоит и когда закончится.</p>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <span class="timeline__num">01</span>
+          <h3 class="timeline__title">Заявка</h3>
+          <p class="timeline__text">Звоните или пишете в мессенджер. Задаём пару вопросов и договариваемся о времени замера.</p>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__num">02</span>
+          <h3 class="timeline__title">Замер</h3>
+          <p class="timeline__text">Бесплатно приезжаем на объект, всё измеряем, обсуждаем пожелания и предлагаем решения.</p>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__num">03</span>
+          <h3 class="timeline__title">Смета</h3>
+          <p class="timeline__text">Готовим подробную смету: каждая работа и каждый материал отдельной строкой.</p>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__num">04</span>
+          <h3 class="timeline__title">Договор</h3>
+          <p class="timeline__text">Фиксируем цену, сроки, этапы оплаты и гарантию. Подписываем — и выходим на объект.</p>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__num">05</span>
+          <h3 class="timeline__title">Ремонт</h3>
+          <p class="timeline__text">Работаем по графику, присылаем фотоотчёты. Оплата по этапам — только за сделанное.</p>
+        </li>
+        <li class="timeline__item reveal">
+          <span class="timeline__num">06</span>
+          <h3 class="timeline__title">Сдача объекта</h3>
+          <p class="timeline__text">Принимаете работу по чек-листу, подписываем акт. Чистая квартира, ключи и гарантия — у вас.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       6. ОТЗЫВЫ (слайдер). Чтобы добавить отзыв — скопируйте блок <li class="review">
+       ======================================================================= -->
+  <section class="section" id="reviews" aria-labelledby="reviews-title">
+    <div class="container">
+      <div class="section__head section__head--row reveal">
+        <div>
+          <p class="section__eyebrow">Отзывы</p>
+          <h2 class="section__title" id="reviews-title">Что говорят клиенты</h2>
+        </div>
+        <div class="slider-nav">
+          <button class="slider-nav__btn" type="button" id="reviews-prev" aria-label="Предыдущий отзыв">
+            <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg>
+          </button>
+          <button class="slider-nav__btn" type="button" id="reviews-next" aria-label="Следующий отзыв">
+            <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="reviews reveal">
+        <ul class="reviews__track" id="reviews-track" tabindex="0" aria-label="Отзывы клиентов">
+          <li class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5">
+              <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <blockquote class="review__text">«Боялись, что ремонт растянется на полгода, а закончили на неделю раньше срока. Смета не выросла ни на рубль. Каждую пятницу получали фото — очень спокойно, когда живёшь в другом районе.»</blockquote>
+            <p class="review__author"><strong>Анна и Сергей</strong><span>Двухкомнатная квартира, 56 м²</span></p>
+          </li>
+          <li class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5">
+              <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <blockquote class="review__text">«Делали отделку дома с нуля. Ребята подсказали, где можно сэкономить без потери качества, помогли с закупкой материалов. После сдачи — ни одной трещины за две зимы.»</blockquote>
+            <p class="review__author"><strong>Дмитрий</strong><span>Частный дом, 160 м²</span></p>
+          </li>
+          <li class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5">
+              <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <blockquote class="review__text">«Санузел и кухня за месяц. Плитка уложена идеально, швы ровные, всё убрали за собой. Соседи даже не жаловались на шум — работали строго в разрешённое время.»</blockquote>
+            <p class="review__author"><strong>Елена</strong><span>Однокомнатная квартира, 38 м²</span></p>
+          </li>
+          <li class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5">
+              <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <blockquote class="review__text">«Купили квартиру в новостройке с черновой отделкой. Через три месяца заехали в готовую — с мебелью на кухне и светом по проекту. Рекомендую всем знакомым.»</blockquote>
+            <p class="review__author"><strong>Игорь</strong><span>Трёхкомнатная квартира, 82 м²</span></p>
+          </li>
+          <li class="review">
+            <div class="review__stars" aria-label="Оценка 5 из 5">
+              <svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg><svg class="icon" aria-hidden="true"><use href="#i-star"/></svg>
+            </div>
+            <blockquote class="review__text">«Обратилась за косметикой перед сдачей квартиры в аренду. Сделали за две недели, цена совпала с озвученной на замере. Квартиру сдала с первого показа.»</blockquote>
+            <p class="review__author"><strong>Ольга</strong><span>Квартира под аренду, 44 м²</span></p>
+          </li>
+        </ul>
+        <div class="reviews__dots" id="reviews-dots" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       7. ЧАСТЫЕ ВОПРОСЫ (аккордеон на нативных <details>)
+       ======================================================================= -->
+  <section class="section section--sand" id="faq" aria-labelledby="faq-title">
+    <div class="container container--narrow">
+      <div class="section__head reveal">
+        <p class="section__eyebrow">Вопросы и ответы</p>
+        <h2 class="section__title" id="faq-title">Частые вопросы</h2>
+      </div>
+
+      <div class="faq reveal">
+        <details class="faq__item" name="faq" open>
+          <summary class="faq__q">Сколько длится ремонт?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__a"><p>Косметический ремонт однокомнатной квартиры — от 3 недель, капитальный под ключ — в среднем 2–4 месяца в зависимости от площади и сложности. Точный график с датами каждого этапа прописываем в договоре.</p></div>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Как происходит оплата?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__a"><p>Поэтапно: вы платите за каждый завершённый и принятый этап. Никаких 100% предоплат. Принимаем наличные и безналичный расчёт, выдаём чеки и закрывающие документы.</p></div>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Кто закупает материалы?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__a"><p>Как вам удобнее. Можем сами рассчитать, закупить и привезти всё необходимое — у нас скидки в строительных магазинах Тюмени. Или составим точный список, а покупать будете вы. Все чеки — прозрачно.</p></div>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Какая гарантия на работы?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__a"><p>Даём письменную гарантию до <span data-cfg="warrantyYears">3</span> лет — срок указан в договоре. Если в этот период появится дефект по нашей вине, бесплатно приедем и устраним.</p></div>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Может ли вырасти цена в процессе?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__a"><p>Нет, если объём работ не меняется. Смета фиксируется в договоре. Цена может измениться только по вашей инициативе — например, если решите добавить тёплый пол или сменить плитку, — и только после письменного согласования.</p></div>
+        </details>
+        <details class="faq__item" name="faq">
+          <summary class="faq__q">Выезд на замер платный?<svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg></summary>
+          <div class="faq__a"><p>Замер и составление сметы бесплатны по Тюмени и ближайшему пригороду. Приедем в удобное для вас время, в том числе в выходные.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- =======================================================================
+       8. ФОРМА ЗАЯВКИ + прямые контакты
+       Отправка в Telegram настраивается в js/config.js → telegram
+       ======================================================================= -->
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="contact">
+        <div class="contact__form-wrap reveal">
+          <p class="section__eyebrow">Бесплатный замер</p>
+          <h2 class="section__title" id="contact-title">Оставьте заявку — перезвоним за 15 минут</h2>
+          <p class="section__lead">Расскажите о своём объекте. Подскажем по срокам и примерной стоимости ещё до выезда.</p>
+
+          <form class="form" id="lead-form" novalidate>
+            <div class="form__row">
+              <label class="field">
+                <span class="field__label">Ваше имя</span>
+                <input class="field__input" type="text" name="name" autocomplete="name" placeholder="Как к вам обращаться" required minlength="2" maxlength="60">
+                <span class="field__error" aria-live="polite"></span>
+              </label>
+              <label class="field">
+                <span class="field__label">Телефон</span>
+                <input class="field__input" type="tel" name="phone" id="phone-input" autocomplete="tel" inputmode="tel" placeholder="+7 (___) ___-__-__" required>
+                <span class="field__error" aria-live="polite"></span>
+              </label>
+            </div>
+
+            <label class="field">
+              <span class="field__label">Тип объекта</span>
+              <span class="field__select">
+                <select class="field__input" name="object" required>
+                  <option value="" selected disabled>Выберите вариант</option>
+                  <option>Квартира — новостройка</option>
+                  <option>Квартира — вторичное жильё</option>
+                  <option>Частный дом / коттедж</option>
+                  <option>Отдельное помещение (санузел, кухня)</option>
+                  <option>Другое</option>
+                </select>
+                <svg class="icon" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+              </span>
+              <span class="field__error" aria-live="polite"></span>
+            </label>
+
+            <label class="field">
+              <span class="field__label">Комментарий <span class="field__optional">— необязательно</span></span>
+              <textarea class="field__input" name="comment" rows="4" maxlength="1000" placeholder="Площадь, вид ремонта, желаемые сроки"></textarea>
+            </label>
+
+            <!-- Ловушка для спам-ботов: поле скрыто от людей, боты его заполняют -->
+            <input class="form__hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+            <button class="btn btn--primary btn--lg btn--block" type="submit">
+              <span class="btn__text">Отправить заявку</span>
+            </button>
+            <p class="form__note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных. Мы не передаём их третьим лицам.</p>
+            <div class="form__status" id="form-status" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <aside class="contact__direct reveal" aria-label="Связаться напрямую">
+          <h3 class="contact__direct-title">Или свяжитесь напрямую</h3>
+          <p class="contact__direct-text">Ответим в мессенджере или возьмём трубку. Без ботов и автоответчиков.</p>
+          <div class="contact__buttons">
+            <a class="contact-btn" href="tel:+79000000000" data-link="phone">
+              <span class="contact-btn__icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>
+              <span><strong>Позвонить</strong><span data-cfg="phoneDisplay">+7 (900) 000-00-00</span></span>
+            </a>
+            <a class="contact-btn" href="https://t.me/username" data-link="telegram" target="_blank" rel="noopener">
+              <span class="contact-btn__icon contact-btn__icon--tg"><svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg></span>
+              <span><strong>Telegram</strong><span data-cfg="telegramHandle">@username</span></span>
+            </a>
+            <a class="contact-btn" href="https://max.ru/" data-link="max" target="_blank" rel="noopener">
+              <span class="contact-btn__icon contact-btn__icon--max"><svg class="icon" aria-hidden="true"><use href="#i-max"/></svg></span>
+              <span><strong>MAX</strong><span>Написать в мессенджер</span></span>
+            </a>
+          </div>
+          <ul class="contact__facts">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ежедневно с 9:00 до 20:00</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Замер и смета — бесплатно</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Тюмень и пригород</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- =========================================================================
+     9. ФУТЕР (реквизиты подставляются из js/config.js)
+     ========================================================================= -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a class="logo logo--light" href="#top" aria-label="Белицкий — наверх">
+        <span class="logo__mark" aria-hidden="true">Б</span>
+        <span class="logo__text">
+          <span class="logo__name">Белицкий</span>
+          <span class="logo__tagline">ремонт квартир и домов</span>
+        </span>
+      </a>
+      <p class="footer__about">Ремонт квартир и домов под ключ в Тюмени. Честная смета, понятные сроки, гарантия.</p>
+    </div>
+
+    <div>
+      <h2 class="footer__title">Контакты</h2>
+      <ul class="footer__list">
+        <li><a href="tel:+79000000000" data-link="phone"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg><span data-cfg="phoneDisplay">+7 (900) 000-00-00</span></a></li>
+        <li><a href="https://t.me/username" data-link="telegram" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg>Telegram</a></li>
+        <li><a href="https://max.ru/" data-link="max" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-max"/></svg>MAX</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="footer__title">Район работы</h2>
+      <ul class="footer__list">
+        <li><svg class="icon" aria-hidden="true"><use href="#i-map-pin"/></svg>Тюмень и пригород</li>
+      </ul>
+    </div>
+
+    <div>
+      <h2 class="footer__title">Реквизиты</h2>
+      <ul class="footer__list footer__list--plain">
+        <li>ИП Белицкий <span data-cfg="ownerName">Имя Отчество</span></li>
+        <li>ИНН <span data-cfg="inn">000000000000</span></li>
+        <li>ОГРНИП <span data-cfg="ogrnip">000000000000000</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <p>© <span id="year">2026</span> ИП Белицкий. Все права защищены.</p>
+    <p>Информация на сайте не является публичной офертой.</p>
+  </div>
+</footer>
+
+<!-- =========================================================================
+     ПЛАВАЮЩАЯ КНОПКА СВЯЗИ (только на мобильных)
+     ========================================================================= -->
+<div class="fab" id="fab">
+  <div class="fab__menu" id="fab-menu" hidden>
+    <a class="fab__item" href="tel:+79000000000" data-link="phone">
+      <span class="fab__item-icon"><svg class="icon" aria-hidden="true"><use href="#i-phone"/></svg></span>Позвонить
+    </a>
+    <a class="fab__item" href="https://t.me/username" data-link="telegram" target="_blank" rel="noopener">
+      <span class="fab__item-icon fab__item-icon--tg"><svg class="icon" aria-hidden="true"><use href="#i-telegram"/></svg></span>Telegram
+    </a>
+    <a class="fab__item" href="https://max.ru/" data-link="max" target="_blank" rel="noopener">
+      <span class="fab__item-icon fab__item-icon--max"><svg class="icon" aria-hidden="true"><use href="#i-max"/></svg></span>MAX
+    </a>
+  </div>
+  <button class="fab__toggle" id="fab-toggle" type="button" aria-label="Связаться с нами" aria-expanded="false" aria-controls="fab-menu">
+    <svg class="icon fab__icon-open" aria-hidden="true"><use href="#i-message"/></svg>
+    <svg class="icon fab__icon-close" aria-hidden="true"><use href="#i-x"/></svg>
+  </button>
+</div>
+
+<!-- =========================================================================
+     ЛАЙТБОКС для портфолио
+     ========================================================================= -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр фото" hidden>
+  <button class="lightbox__close" type="button" aria-label="Закрыть"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></button>
+  <button class="lightbox__nav lightbox__nav--prev" type="button" aria-label="Предыдущее фото"><svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg></button>
+  <figure class="lightbox__figure">
+    <img class="lightbox__img" src="" alt="">
+    <figcaption class="lightbox__caption"></figcaption>
+  </figure>
+  <button class="lightbox__nav lightbox__nav--next" type="button" aria-label="Следующее фото"><svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg></button>
+</div>
+
+</body>
+</html>
